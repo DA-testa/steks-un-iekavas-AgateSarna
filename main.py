@@ -12,18 +12,17 @@ def find_mismatch(text):
     opening_brackets_stack = []
     for i, next in enumerate(text):
         if next in "([{":
-            opening_brackets_stack.append(Bracket(next, i))
-
+            opening_brackets_stack.append(Bracket(next, i+1))
         if next in ")]}":
-            if len(opening_brackets_stack) == 0:
+            if not opening_brackets_stack:
                 return i+1
-            rem = opening_brackets_stack.pop()
+            rem = opening_brackets_stack[-1]
             if not are_matching(rem.char, next):
                 return i+1
-    if len(opening_brackets_stack) == 0:
-        return "Sucess"
-    else:
-        return [opening_brackets_stack[0].position + 1]
+            opening_brackets_stack.pop()
+    if opening_brackets_stack:
+        return opening_brackets_stack[0].position
+    return "Sucess"
 
 
 def main():
@@ -31,7 +30,7 @@ def main():
     if "I" in input_method :
         text = input()
         mismatch = find_mismatch(text)
-        if type(mismatch) == int:
+        if type (mismatch) == int:
             print(mismatch)
         else:
             print("Success")
