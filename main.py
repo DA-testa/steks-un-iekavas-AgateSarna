@@ -9,7 +9,6 @@ def are_matching(left, right):
 
 
 def find_mismatch(text):
-    br_dict = {'(':'}','[':']','{':'}'}
     opening_brackets_stack = []
     for i, next in enumerate(text):
         if next in "([{":
@@ -28,9 +27,18 @@ def find_mismatch(text):
 
 
 def main():
-    text = input()
-    mismatch = find_mismatch(text)
-    print(mismatch)
-
-if __name__ == "__main__":
-    main()
+    input_method = input()
+    if "I" in input_method :
+        text = input()
+        mismatch = find_mismatch(text)
+        if type(mismatch) == int:
+            print(mismatch)
+        else:
+            print("Success")
+    elif input_method == "F" :
+        filename = input()
+        test = "./test/" + filename
+        with open (test, mode = 'r') as file:
+            text = file.read()
+            mismatch = find_mismatch(text)
+            print(mismatch)
