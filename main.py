@@ -25,19 +25,19 @@ def find_mismatch(text):
     return "Sucess"
 
 
-def main():
-    input_method = input()
-    if "I" in input_method :
-        text = input()
-        mismatch = find_mismatch(text)
-        if type (mismatch) == int:
-            print(mismatch)
-        else:
-            print("Success")
-    elif input_method == "F" :
-        filename = input()
-        test = "./test/" + filename
-        with open (test, mode = 'r') as file:
-            text = file.read()
-            mismatch = find_mismatch(text)
-            print(mismatch)
+#def main():
+ #   input_method = input()
+  #  if "I" in input_method :
+   #     text = input()
+    #    mismatch = find_mismatch(text)
+     #   if type (mismatch) == int:
+      #      print(mismatch)
+       # else:
+        #    print("Success")
+    #elif input_method == "F" :
+     #   filename = input()
+      #  test = "./test/" + filename
+       # with open (test, mode = 'r') as file:
+        #    text = file.read()
+         #   mismatch = find_mismatch(text)
+          #  print(mismatch)
